@@ -1,0 +1,65 @@
+\documentclass[fontsize=12pt, paper=letter]{scrlttr2}
+
+% Dont forget to read the KOMA-Script documentation, scrguien.pdf
+
+\setkomavar{fromname}{Dr.\ Garrett Smith} % your name
+\setkomavar{fromaddress}{Department of Linguistics\\
+    University of Potsdam\\
+    Potsdam, Germany}
+
+\setkomavar{signature}{Dr.\ Garrett Smith} % printed after the \closing
+\renewcommand{\raggedsignature}{\raggedright} % make the signature ragged right
+
+\setkomavar{subject}{} % subject of the letter
+
+%\usepackage[backend=biber,useprefix=true, style=apa,%citestyle=numeric,firstinits=true,
+%url=false,doi=false,%sortcites=true,
+%sorting=nyt,eprint=false]{biblatex}
+%\DeclareNameAlias{author}{last-first}
+%\addbibresource{master.bib}
+
+\begin{document}
+\begin{letter}{Dr. Edward Gibson\\
+    Editor\\
+    Open Mind}
+
+\opening{Dear Dr. Gibson,}
+
+I would like to submit for your consideration the attached manuscript, entitled
+\emph{Mparse: A new framework for self-organized, incremental sentence
+comprehension}.
+
+The paper presents a computational model of word-by-word sentence parsing,
+called \emph{mparse}, in which syntactic structures for whole sentences
+assemble themselves out of word-word dependency links. Self-organization as
+theory of parsing goes back at least to Kempen and Vosse (1989;
+\emph{Connection Science 1}(3)), but previous implementations have faced a
+number of shortcomings. The new model seeks to alleviate these issues to
+make self-organized parsing a more easily and broadly testable theory in
+psycholinguistics. I test the model on garden path, local coherence, and
+ambiguity advantage effects and find that it reproduces human reading time
+behavior. I believe the manuscript will be of interest to the \emph{Open
+Mind} readership as it provides a mathematically tractable implementation
+of self-organization that makes novel experimental predictions and can form
+the basis for future comparisons with other theories of sentence
+processing.
+
+All the data and code relating to the paper are available from the following
+    link: URL.
+
+Suggested reviewers:
+\begin{itemize}
+\item Lena Jäger: jaeger@cl.uzh.ch
+\item Emily Morgan: eimorgan@ucdavis.edu
+\item Lars Konieczny: lars@cognition.uni-freiburg.de
+\item Paul Smolensky: smolensky@jhu.edu
+\item Roger Levy: rplevy@mit.edu
+\end{itemize}
+
+I look forward to hearing from you. 
+
+\closing{Sincerely,} %eg. Regards
+
+
+\end{letter}
+\end{document}
