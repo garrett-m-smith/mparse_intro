@@ -4,6 +4,7 @@ papers/old/*
 
 *.DS_Store
 coverletter.*
+intro_paper/OPMI*.pdf
 
 # Jupyter Notebook
 .ipynb_checkpoints
