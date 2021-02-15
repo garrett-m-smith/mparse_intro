@@ -2,6 +2,9 @@
 old/*
 papers/old/*
 
+*.DS_Store
+coverletter.*
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
