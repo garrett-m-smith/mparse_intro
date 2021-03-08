@@ -583,24 +583,17 @@ if __name__ == '__main__':
     # The list is [harmony, order]
     grammar = {'det-cat': {'the': [1.0, -1]},
                'det-dog': {'the': [1.0, -1]},
-               'det-old': {'the': [1.0, -1]},
-               'det-man': {'the': [1.0, -1]},
-               'det-fort': {'the': [1.0, -1]},
-               'adj-man': {'old': [1.0, -1]},
                'nsubj-sleeps': {'cat': [1.0, -1], 'dog': [1.0, -1]},
-               'nsubj-eats': {'cat': [1.0, -1], 'dog': [1.0, -1]},
-               'nsubj-man': {'old': [1.0, -1]},
-               'obj-eats': {'dog': [1.0, 1]},
-               'obj-man': {'fort': [1.0, 1]},
                'adv-sleeps': {'quietly': [1.0, -1]}}
-    # segs = []
-    wds = ['the', 'cat', 'sleeps']#, 'the']
-    # #wds = ['the', 'cat', 'the', 'dog']
+    wds = ['the', 'cat', 'sleeps']
+    # incompat would be a list of pairs of links that are not allowed
+    # to occur together
     incompat = None
+    print('Processing the sentence, "{}"'.format(' '.join(wds)))
     segs = run_sent(wds, grammar, incompat, tau=1.0, T=0.5,
                     method='glauber', plot_trans=False, check_fptd=False,
                     exit_only=True, log_axis=False)
-    segs[-1].plot_seg_soln()
+    print('Predicted mean reading times (and variances) for a range of parameters')
     ep = explore_params(wds, grammar, incompat,
                         [0.5, 1.0], [0.1, 1.0], method='glauber')
-    print(ep.head(10))
+    print(ep)
