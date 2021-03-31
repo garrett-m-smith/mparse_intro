@@ -104,4 +104,6 @@ function returns a data frame (using the Pandas package) with information about
 the processing time predictions for each combination of the parameters.
 
 Simple examples of these functions are given at the bottom of the mparse.py
-Python script in the directory mparse. 
+Python script in the directory mparse. More involved examples, including
+comparisons of different experimental conditions, are given in the .pnw file
+for the mparse paper (intro_paper/mparse_intro.pnw).
