@@ -557,7 +557,7 @@ if __name__ == '__main__':
     # to occur together
     incompat = None
     print('Processing the sentence, "{}"'.format(' '.join(wds)))
-    segs = run_sent(wds, grammar, incompat, tau=1., T=0.5,
+    segs = run_sent(wds, grammar, incompat, tau=1.25, T=0.5,
                     method='glauber', plot_trans=False, check_fptd=False,
                     exit_only=True, log_axis=False)
     print('Predicted mean reading times (and variances) for a range of parameters')
