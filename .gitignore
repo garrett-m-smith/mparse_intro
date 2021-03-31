@@ -2,6 +2,10 @@
 old/*
 papers/old/*
 
+# temporary vim files
+*.swp
+*.swo
+
 *.DS_Store
 coverletter.*
 intro_paper/OPMI*.pdf

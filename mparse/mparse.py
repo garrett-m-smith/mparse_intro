@@ -546,51 +546,18 @@ def explore_params(sent, grammar, incompat, taulist, Tlist,
     return pd.DataFrame(dat)
 
 
-# def solve(self, dt=0.1):
-#     print('consider rewriting to have initial condition at first word only have probability in the length-one configurations')
-#     times = [int(2 * x.mean / dt) for x in self.segments]
-#     #times = [int(x.mean / dt) for x in self.segments]
-#     tends = np.cumsum(times)
-#     tmax = sum([2 * x for x in times])
-#     full = np.ones((1, len(self.configs))) / len(self.configs)
-#     for i, seg in enumerate(self.segments):
-#         if seg.mean != 0:
-#             traj = np.zeros((int(times[i] / dt), len(self.configs)))
-#         else:
-#             print("You're in a kludge! Deal with zero RTs!!!")
-#             traj = np.zeros((int(max(times) / dt), len(self.configs)))
-#         traj[0, :] = full[-1, :]
-#         for t in range(traj.shape[0] - 1):
-#             traj[t + 1, :] = traj[t, :] + dt*seg.trans_mat.dot(traj[t, :])
-#         full = np.row_stack([full, traj])
-#     self.soln = full
-#     self.tvec = np.linspace(0, sum([2 * x.mean for x in self.segments]), full.shape[0])
-
-# def plot_soln(self):
-#     plt.figure(figsize=(10, 6))
-#     lineobjs = plt.plot(self.tvec, self.soln)
-#     plt.legend(lineobjs, self.configs, loc='upper left',
-#         bbox_to_anchor=(1.04, 1), ncol=1)
-#     times = np.cumsum([0] + [2*x.mean for x in self.segments])
-#     for i, w in enumerate(self.sentence.words):
-#         plt.text(times[i], 0.8, w.word)
-#     plt.ylim(-0.05, 1.05)
-#     plt.tight_layout()
-#     plt.show()
-
-
 if __name__ == '__main__':
     # The list is [harmony, order]
     grammar = {'det-cat': {'the': [1.0, -1]},
                'det-dog': {'the': [1.0, -1]},
                'nsubj-sleeps': {'cat': [1.0, -1], 'dog': [1.0, -1]},
-               'adv-sleeps': {'quietly': [1.0, -1]}}
+               'adv-sleeps': {'quietly': [1.0, 1]}}
     wds = ['the', 'cat', 'sleeps']
     # incompat would be a list of pairs of links that are not allowed
     # to occur together
     incompat = None
     print('Processing the sentence, "{}"'.format(' '.join(wds)))
-    segs = run_sent(wds, grammar, incompat, tau=1.0, T=0.5,
+    segs = run_sent(wds, grammar, incompat, tau=1., T=0.5,
                     method='glauber', plot_trans=False, check_fptd=False,
                     exit_only=True, log_axis=False)
     print('Predicted mean reading times (and variances) for a range of parameters')
